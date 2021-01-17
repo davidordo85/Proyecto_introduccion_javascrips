@@ -16,23 +16,15 @@ const AWAY_TEAM = 1
 
 export default class WorldCup {
 
-    constructor(name, teams = [], config = {}) {
+    constructor(name, teams = []) {
         this.name = name
         this.teams = []
         this.matchDaySchedule = []
-        this.setup(config)
         this.setupTeams(teams)
         this.summaries = []
         this.filteredTeamsWin = []
         this.filteredTeamsLoss = []
     }
-
-    setup(config) {
-        const defaultConfig = { rounds: 1 }
-        this.config = Object.assign(defaultConfig, config)
-    }
-
-
 
     setupTeams(teamNames) {
         for (const teamName of teamNames) {
@@ -49,7 +41,6 @@ export default class WorldCup {
     customizeTeam(teamName) {
         return {
             name: teamName,
-            win: 0
         }
     }
 
